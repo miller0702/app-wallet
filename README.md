@@ -41,6 +41,8 @@ Luego de realizado esto procedemos a ubicarnos en diferentes terminales en cada 
 
 ## DB-API
 
+Correra por el puerto 3000
+
 ```bash
 cd db-api
 npm install
@@ -48,6 +50,8 @@ npm run start:dev
 ```
 
 ## SERVICE-API
+
+Correra por el puerto 5000
 
 ```bash
 cd service-api
@@ -57,6 +61,8 @@ npm run start:dev
 
 ## FRONTEND
 
+Correra por el puerto 5173
+
 ```bash
 cd frontend
 npm install
@@ -65,3 +71,12 @@ npm run dev
 
 ## Probar Rutas
 
+Una vez corridos todos lo servicios, para probar las rutas y tener un mejor contexto dirigite a la siguiente url:
+
+```bash
+localhost:5000/api-docs/
+```
+
+Alli encontraras toda la documentación respecto a cada ruta y como implementarlas en postman o puedes dirigirte al siguiente link donde encontraras todas las rutas en postman
+
+- [Postman](https://documenter.getpostman.com/view/20358776/2sAXqzWdgs)
