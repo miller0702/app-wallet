@@ -3,12 +3,17 @@ import { WalletService } from './wallet.service';
 import { CreateRechargeDto } from './dto/create-recharge.dto';
 import { CreatePaymentDto } from './dto/create-pay.dto';
 import { ConfirmarPagoDto } from './dto/confirmar-pago.dto';
+import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
+@ApiTags('wallet')
 @Controller('wallet')
 export class WalletController {
   constructor(private readonly walletService: WalletService) {}
 
   @Post('recharge')
+  @ApiOperation({ summary: 'Recargar la billetera' })
+  @ApiResponse({ status: 201, description: 'Recarga realizada con éxito.' })
+  @ApiResponse({ status: 500, description: 'Error al realizar la recarga.' })
   async rechargeWallet(@Body() createRechargeDto: CreateRechargeDto) {
     try {
       const response = await this.walletService.rechargeWallet(createRechargeDto);
@@ -25,6 +30,9 @@ export class WalletController {
   }
 
   @Post('pay')
+  @ApiOperation({ summary: 'Solicitar un pago' })
+  @ApiResponse({ status: 200, description: 'Pago solicitado. Se ha enviado un token al correo.' })
+  @ApiResponse({ status: 500, description: 'Error al procesar el pago.' })
   async pay(@Body() createPaymentDto: CreatePaymentDto) {
     try {
       const response = await this.walletService.pay(createPaymentDto);
@@ -41,7 +49,10 @@ export class WalletController {
   }
 
   @Post('confirm-payment')
-  async confirmPayment(@Body() confirmarPagoDto: ConfirmarPagoDto) { 
+  @ApiOperation({ summary: 'Confirmar un pago' })
+  @ApiResponse({ status: 200, description: 'Pago confirmado.' })
+  @ApiResponse({ status: 500, description: 'Error al confirmar el pago.' })
+  async confirmPayment(@Body() confirmarPagoDto: ConfirmarPagoDto) {
     try {
       const response = await this.walletService.confirmPayment(confirmarPagoDto);
       return {
@@ -57,6 +68,9 @@ export class WalletController {
   }
 
   @Get(':clientId/balance')
+  @ApiOperation({ summary: 'Consultar el saldo de la billetera' })
+  @ApiResponse({ status: 200, description: 'Saldo consultado con éxito.' })
+  @ApiResponse({ status: 500, description: 'Error al consultar el saldo.' })
   async getWalletBalance(@Param('clientId') clientId: string) {
     try {
       const response = await this.walletService.getWalletBalance(clientId);
@@ -72,5 +86,4 @@ export class WalletController {
       );
     }
   }
-  
 }

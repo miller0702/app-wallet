@@ -58,7 +58,6 @@ export class WalletsService {
   }
 
   async pay(createPaymentDto: CreatePaymentDto): Promise<any> {
-    // Validar el cliente usando documento y celular
     const validateClientDto: ValidateClientDto = {
       documento: createPaymentDto.documento,
       celular: createPaymentDto.celular,

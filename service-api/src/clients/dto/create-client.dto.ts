@@ -1,16 +1,20 @@
-// src/clientes/dto/create-client.dto.ts
 import { IsEmail, IsNotEmpty } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateClientDto {
-  @IsNotEmpty()
+  @ApiProperty({ description: 'Número de documento del cliente', example: '123456789' })
+  @IsNotEmpty({ message: 'El documento es requerido' })
   documento: string;
 
-  @IsNotEmpty()
+  @ApiProperty({ description: 'Nombres del cliente', example: 'Juan Pérez' })
+  @IsNotEmpty({ message: 'El nombre es requerido' })
   nombres: string;
 
-  @IsNotEmpty()
+  @ApiProperty({ description: 'Número de celular del cliente', example: '987654321' })
+  @IsNotEmpty({ message: 'El celular es requerido' })
   celular: string;
 
-  @IsEmail()
+  @ApiProperty({ description: 'Email del cliente', example: 'juan.perez@example.com' })
+  @IsEmail({}, { message: 'El email no es válido' })
   email: string;
 }

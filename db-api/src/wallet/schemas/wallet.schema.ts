@@ -26,7 +26,7 @@ export class Wallet extends Document {
   @Prop({ type: PendingPayment, default: null })
   pendingPayment: PendingPayment; 
 
-  @Prop({ default: null }) // ID de sesión para la compra
+  @Prop({ default: null })
   sessionId: string; 
 }
 
