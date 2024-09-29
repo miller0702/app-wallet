@@ -1,0 +1,7 @@
+db-api/node_modules/
+db-api/dist/
+db-api/.env
+service-api/dist/
+service-api/.env
+service-api/node_modules/
+frontend/node_modules/
