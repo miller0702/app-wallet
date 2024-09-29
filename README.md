@@ -10,11 +10,12 @@ Este repositorio contiene el código para el proyecto **App Wallet**, que está 
 
 La estructura del proyecto es la siguiente:
 
+```bash
 /prueba 
     ├── /db-api # API para la gestión de la base de datos
     ├── /service-api # API para la lógica de negocio
     └── /frontend # Aplicación del lado del cliente
-
+```
 
 
 ## Requisitos Previos
