@@ -7,7 +7,7 @@ const Payment = ({ onSuccess }) => {
   const [documento, setDocumento] = useState('');
   const [celular, setCelular] = useState('');
   const [monto, setMonto] = useState('');
-  const [token, setToken] = useState(''); // Para almacenar el token que se recibe por correo
+  const [token, setToken] = useState('');
   const [isCustomerValid, setIsCustomerValid] = useState(false);
   const [customerName, setCustomerName] = useState('');
   const [sessionId, setSessionId] = useState('');
@@ -38,9 +38,9 @@ const Payment = ({ onSuccess }) => {
     });
     try {
       const response = await clienteAxios.post('/wallet/pay', {
-        documento: documento, // Enviar documento del cliente validado
-        celular: celular, // Enviar celular del cliente validado
-        monto: monto, // Enviar monto del pago
+        documento: documento,
+        celular: celular,
+        monto: monto,
       });
 
       if (response.data.sessionId) {
@@ -58,13 +58,13 @@ const Payment = ({ onSuccess }) => {
   const handleConfirmPayment = async () => {
     try {
       const response = await clienteAxios.post('/wallet/confirm-payment', {
-        sessionId: sessionId, // Incluir sessionId para confirmar el pago
-        documento: documento, // Enviar documento del cliente validado
-        token: token, // Ingresar token que llega al correo
+        sessionId: sessionId,
+        documento: documento,
+        token: token,
       });
 
       alert('Pago confirmado. Saldo actualizado: ' + response.data.saldo);
-      onSuccess(); // Llama a la función de éxito para manejar el flujo
+      onSuccess();
     } catch (error) {
       console.error('Error confirmando pago', error);
       alert('Error confirmando pago: ' + (error.response?.data?.message || error.message));

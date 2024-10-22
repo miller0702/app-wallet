@@ -1,4 +1,3 @@
-// wallet.module.ts
 import { forwardRef, Module } from '@nestjs/common';
 import { WalletsService } from './wallet.service';
 import { WalletsController } from './wallet.controller';

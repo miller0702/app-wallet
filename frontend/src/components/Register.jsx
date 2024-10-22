@@ -6,7 +6,7 @@ import useAuth from '../hooks/useAuth';
 import registerStyles from '../styles/RegisterStyle';
 import Logo from '../assets/img/Pays.png';
 import { useTheme } from '../context/ThemeContext';
-import { useNavigate, useLocation } from 'react-router-dom'; // Importar useNavigate y useLocation
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Register = ({ onSuccess }) => {
   const [nombres, setNombres] = useState('');

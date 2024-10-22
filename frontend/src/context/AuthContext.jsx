@@ -89,7 +89,7 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     setDocumento(null);
     setCelular(null);
-    setIsTokenVerified(false); // Resetear la verificación del token al cerrar sesión
+    setIsTokenVerified(false);
     localStorage.removeItem('token');
     toast.info('Sesión cerrada');
   };

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import * as dotenv from 'dotenv';
 
-dotenv.config(); // Cargar las variables de entorno
+dotenv.config();
 
 @Injectable()
 export class ApiService {
